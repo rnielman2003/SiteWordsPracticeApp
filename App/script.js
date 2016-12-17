@@ -13,16 +13,19 @@ angular.module('ngRouteExample', ['ngRoute'])
   $scope.$routeParams = $routeParams;
   //needs to be dynamic
   //also setup arrow keys and spacebar
-  $scope.wordList = [
-    'cat',
-    'dog',
-    'three'
-  ];
+  $scope.wordList = [];
+  $scope.txtWordList;
+  $scope.saveWordList = function () {
+      alert($scope.txtWordList);
+      alert('saved');
+      
+  }
 })
 
 .controller('WordController', function($scope, $routeParams) {
   $scope.name = "WordController";
   $scope.params = $routeParams;
+  
 })
 
 

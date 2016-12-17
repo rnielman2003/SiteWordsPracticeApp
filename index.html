@@ -14,8 +14,7 @@
 </head>
 <body>
   <div ng-controller="MainController" ng-app="ngRouteExample">
-  Choose:
-  <a href="#/instructions">Instructions</a>
+  <a href="/SiteWordsPracticeApp/">Start</a>
   <!-- loop theses -->
   <span ng-repeat="word in wordList">
     <a href="Word/{{word}}">{{word}}</a>
@@ -37,6 +36,9 @@
   </script>
   <script type="text/ng-template" id="instructions.html">
     <p>Instructions: Enter word list separated by commas to begin</p>
+    <input type="text" style="width:200px" ng-model="$parent.txtWordList" name="words" />
+    <button id="saveWords" class="primaryButton" ng-click="saveWordList()">Save</button>
+     
   </script>
 </div>
 
