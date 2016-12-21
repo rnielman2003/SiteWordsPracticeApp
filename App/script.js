@@ -18,6 +18,8 @@ angular.module('ngRouteExample', ['ngRoute'])
   $scope.saveWordList = function () {
     $scope.wordList = [];
     $scope.wordList = $scope.txtWordList.split(',');
+    var rt = '/Word/' + $scope.wordList[0];
+    $location.path(rt);
   }
 })
 

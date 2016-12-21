@@ -11,13 +11,17 @@
 
   <title>Site Words App by rnielson</title>
 <base href="/SiteWordsPracticeApp/">
+<style>
+body {font-family:arial;}
+h1 {font-size:140px;text-align:center;}
+</style>
 </head>
 <body>
   <div ng-controller="MainController" ng-app="ngRouteExample">
-  <a href="/SiteWordsPracticeApp/">Start</a>
+  <span ng-show="wordList.length > 0"><a href="/SiteWordsPracticeApp/">Start Over</a> | </span>
   <!-- loop theses -->
   <span ng-repeat="word in wordList">
-    <a href="Word/{{word}}">{{word}}</a>
+    <a href="Word/{{word}}">{{word}}</a>&nbsp;&nbsp;
   </span>
  
 
@@ -25,11 +29,7 @@
   <ng-view>Loading...</ng-view>
   <hr>
 
-  <pre>$location.path() = {{$location.path()}}</pre>
-  <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-  <pre>$route.current.params = {{$route.current.params}}</pre>
-  <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-  <pre>$routeParams = {{$routeParams}}</pre>
+
 
   <script type="text/ng-template" id="word.html">
     <h1>{{params.wordId}}</h1>
@@ -41,11 +41,6 @@
      
   </script>
 </div>
-
-
-
-
-
 
 </body>
 </html>
