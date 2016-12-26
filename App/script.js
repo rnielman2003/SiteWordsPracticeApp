@@ -15,12 +15,35 @@ angular.module('ngRouteExample', ['ngRoute'])
   //also setup arrow keys and spacebar
   $scope.wordList = [];
   $scope.txtWordList;
+  $scope.navigate = function (goHere) {
+    var rt = '/Word/' + goHere;
+    $location.path(rt);
+  }
   $scope.saveWordList = function () {
     $scope.wordList = [];
     $scope.wordList = $scope.txtWordList.split(',');
-    var rt = '/Word/' + $scope.wordList[0];
-    $location.path(rt);
+    $scope.daWordObj = [];
+    for (i = 0; i < $scope.wordList.length; i++) { 
+        $scope.daWordObj.push({ name: $scope.wordList[i], index: i });
+    }
+    $scope.navigate($scope.daWordObj[0].name);
+    $scope.current = $scope.daWordObj[0];
+    $scope.next = function(){
+        var i = $scope.getIndex($scope.current.index, 1);
+        $scope.current = $scope.daWordObj[i];
+        $scope.navigate($scope.daWordObj[i].name);
+    };
+    $scope.previous = function(){
+        var i = $scope.getIndex($scope.current.index, -1);
+        $scope.current = $scope.daWordObj[i];
+        $scope.navigate($scope.daWordObj[i].name);
+    };
+    $scope.getIndex = function(currentIndex, shift){
+        var len = $scope.daWordObj.length;
+        return (((currentIndex + shift) + len) % len)
+    };
   }
+  
 })
 
 .controller('WordController', function($scope, $routeParams) {
@@ -28,7 +51,6 @@ angular.module('ngRouteExample', ['ngRoute'])
   $scope.params = $routeParams;
   
 })
-
 
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -56,4 +78,6 @@ angular.module('ngRouteExample', ['ngRoute'])
   $locationProvider.html5Mode(true);
 });
 
-//]]> 
+
+
+

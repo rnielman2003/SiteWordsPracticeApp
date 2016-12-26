@@ -12,35 +12,38 @@
   <title>Site Words App by rnielson</title>
 <base href="/SiteWordsPracticeApp/">
 <style>
-body {font-family:arial;}
-h1 {font-size:140px;text-align:center;}
+body { font-family:arial; }
+h1 { font-size:140px; text-align:center; }
+.centeredwrapper { text-align:center; }
 </style>
 </head>
 <body>
   <div ng-controller="MainController" ng-app="ngRouteExample">
-  <span ng-show="wordList.length > 0"><a href="/SiteWordsPracticeApp/">Start Over</a> | </span>
-  <!-- loop theses -->
-  <span ng-repeat="word in wordList">
-    <a href="Word/{{word}}">{{word}}</a>&nbsp;&nbsp;
-  </span>
- 
+    <span ng-show="wordList.length > 0"><a href="/SiteWordsPracticeApp/">Start Over</a></span>
+    <!-- loop theses -->
+    <!--<span ng-repeat="word in wordList">
+      <a href="Word/{{word}}">{{word}}</a>&nbsp;&nbsp;
+    </span>-->
+    
 
-  <hr>
-  <ng-view>Loading...</ng-view>
-  <hr>
+    <hr>
+    <ng-view>Loading...</ng-view>
+    <hr>
+    <div class="centeredwrapper">
+      <button ng-click="previous()" ng-show="wordList.length > 0">previous</button>
+      <button ng-click="next()" ng-show="wordList.length > 0">next</button>
+    </div>
 
-
-
-  <script type="text/ng-template" id="word.html">
-    <h1>{{params.wordId}}</h1>
-  </script>
-  <script type="text/ng-template" id="instructions.html">
-    <p>Instructions: Enter word list separated by commas to begin</p>
-    <input type="text" style="width:200px" ng-model="$parent.txtWordList" name="words" />
-    <button id="saveWords" class="primaryButton" ng-click="saveWordList()">Save</button>
-     
-  </script>
-</div>
+    <script type="text/ng-template" id="word.html">
+      <h1>{{params.wordId}}</h1>
+    </script>
+    <script type="text/ng-template" id="instructions.html">
+      <p>Instructions: Enter word list separated by commas to begin</p>
+      <input type="text" style="width:200px" ng-model="$parent.txtWordList" name="words" />
+      <button id="saveWords" class="primaryButton" ng-click="saveWordList()">Save</button>
+      
+    </script>
+  </div>
 
 </body>
 </html>
