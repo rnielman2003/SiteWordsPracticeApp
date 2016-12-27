@@ -1,0 +1,117 @@
+body {
+  font-family: arial;
+  background:white;
+}
+
+.arrowcontainer {
+  vertical-align: top;
+  display: table;
+}
+
+.inline {
+  display: inline-block;
+  margin-right:5px;
+}
+
+.arrow {
+width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.next .arrow {
+  border-width: 17.5px 0 17.5px 17.5px;
+  border-color: transparent transparent transparent #ccc;
+}
+
+.prev .arrow {
+  border-width: 17.5px 17.5px 17.5px 0;
+  border-color: transparent #ccc transparent transparent;
+}
+
+.body {
+  background-color: #ccc;
+  width: 130px;
+  padding: 3px;
+  display: table-cell;
+  color: #fff;
+  vertical-align: middle;
+  position: relative;
+}
+
+.body span {
+  font-size: 22px;
+  margin-left: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.prev .body span {
+  margin-left: 30px;
+}
+
+.next:hover .body span,
+.prev:hover .body span {
+  color: #000;
+}
+
+.next ul {
+  list-style: none;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+.next li::before {
+  position: relative;
+  top: 3px;
+  content: "";
+  display: inline-block;
+  /* By using an em scale, the arrows will size with the font */
+  width: 11px;
+  height: 11px;
+  border-right: 5px solid #fff;
+  border-top: 5px solid #fff;
+  transform: rotate(45deg);
+  margin-right: 0;
+}
+
+.prev ul {
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+.prev li::before {
+  position: relative;
+  top: 3px;
+  content: "";
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-right: 5px solid #fff;
+  border-top: 5px solid #fff;
+  transform: rotate(-135deg);
+  margin-right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  cursor: pointer
+}
+
+.next:hover li::before {
+  border-color: #000;
+  cursor: pointer
+}
+
+.prev:hover li::before {
+  border-color: #000;
+  cursor: pointer;
+}
