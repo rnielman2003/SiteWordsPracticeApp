@@ -8,14 +8,9 @@
     <script type="text/javascript" src="Vendor/angular.min.js"></script>
     <script type="text/javascript" src="Vendor/angular-route.js"></script>
     <script type="text/javascript" src="App/script.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="css/global.css">
   <title>Site Words App by rnielson</title>
 <base href="/SiteWordsPracticeApp/">
-<style>
-body { font-family:arial; }
-h1 { font-size:140px; text-align:center; }
-.centeredwrapper { text-align:center; }
-</style>
 </head>
 <body>
   <div ng-controller="MainController" ng-app="ngRouteExample">
@@ -30,8 +25,27 @@ h1 { font-size:140px; text-align:center; }
     <ng-view>Loading...</ng-view>
     <hr>
     <div class="centeredwrapper">
-      <button ng-click="previous()" ng-show="wordList.length > 0">previous</button>
-      <button ng-click="next()" ng-show="wordList.length > 0">next</button>
+      <div class="inline prev" ng-click="previous()" ng-show="wordList.length > 0">
+  <div class="arrowcontainer">
+    <div class="arrow"></div>
+    <div class="body">
+      <ul>
+        <li></li>
+      </ul>
+      <span>Prev</span>
+    </div>
+  </div>
+</div>
+<div class="inline next" ng-click="next()" ng-show="wordList.length > 0">
+  <div class="arrowcontainer">
+    <div class="body"><span>Next</span>
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+    <div class="arrow"></div>
+  </div>
+</div>
     </div>
 
     <script type="text/ng-template" id="word.html">
