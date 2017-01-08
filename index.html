@@ -13,9 +13,10 @@
 <base href="/SiteWordsPracticeApp/">
 </head>
 <body>
-  
   <div id="container">
-    <div ng-controller="MainController" ng-app="ngRouteExample">
+  <div ng-controller="MainController" ng-app="ngRouteExample">
+
+    
    <div id="header">
 
    </div>
@@ -39,37 +40,34 @@
 
    </div>
    <div id="footer">
-      <div class="centeredwrapper">
-      <div class="inline prev" ng-click="previous()" ng-show="wordList.length > 0">
-  <div class="arrowcontainer">
-    <div class="arrow"></div>
-    <div class="body">
-      <ul>
-        <li></li>
-      </ul>
-      <span>Prev</span>
+      <div class="centeredwrapper" ng-show="wordList.length > 0">
+      <div class="inline prev" ng-click="previous()">
+      <div class="arrowcontainer">
+        <div class="arrow"></div>
+        <div class="body">
+          <ul>
+            <li></li>
+          </ul>
+          <span>Prev</span>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="inline next" ng-click="next()" ng-show="wordList.length > 0">
-  <div class="arrowcontainer">
-    <div class="body"><span>Next</span>
-      <ul>
-        <li></li>
-      </ul>
+    <div class="inline next" ng-click="next()">
+      <div class="arrowcontainer">
+        <div class="body"><span>Next</span>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+        <div class="arrow"></div>
+      </div>
     </div>
-    <div class="arrow"></div>
-  </div>
-</div>
+
+    <p class="grey">You can also use &lt;spacebar&gt; or arrow keys to navigate</p>
+
     </div>
    </div>
 </div>
-  
-    
-    
-
-    
-  </div>
-
+</div>
 </body>
 </html>
