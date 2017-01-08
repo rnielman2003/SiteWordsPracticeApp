@@ -1,7 +1,30 @@
+html,
 body {
-  font-family: arial;
-  background:white;
+   margin:0;
+   padding:0;
+   height:100%;
+   font-family:arial;
 }
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   padding:10px;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+}
+
+h1 { font-size:140px; text-align:center; }
+.centeredwrapper { text-align:center; }
 
 .arrowcontainer {
   vertical-align: top;
@@ -41,14 +64,14 @@ width: 0;
 
 .body span {
   font-size: 22px;
-  margin-left: 20px;
+  margin-left: 0;
   padding: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .prev .body span {
-  margin-left: 30px;
+  margin-left: 5px;
 }
 
 .next:hover .body span,
